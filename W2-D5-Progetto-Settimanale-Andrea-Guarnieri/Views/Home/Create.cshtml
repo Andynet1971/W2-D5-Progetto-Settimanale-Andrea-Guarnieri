@@ -1,0 +1,54 @@
+﻿@model W2_D5_Progetto_Settimanale_Andrea_Guarnieri.ViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="container mt-5 form-container">
+    <h2>Create a new product</h2>
+
+    <!-- Form per creare un nuovo prodotto -->
+    <form asp-action="Create" enctype="multipart/form-data" method="post">
+        <!-- Campo per il nome del prodotto -->
+        <div class="form-group">
+            <label asp-for="NewProduct.Name"></label>
+            <input asp-for="NewProduct.Name" class="form-control" />
+            <span asp-validation-for="NewProduct.Name" class="text-danger"></span>
+        </div>
+
+        <!-- Campo per il prezzo del prodotto -->
+        <div class="form-group">
+            <label asp-for="NewProduct.Price"></label>
+            <input asp-for="NewProduct.Price" class="form-control" />
+            <span asp-validation-for="NewProduct.Price" class="text-danger"></span>
+        </div>
+
+        <!-- Campo per la descrizione del prodotto -->
+        <div class="form-group">
+            <label asp-for="NewProduct.Description"></label>
+            <textarea asp-for="NewProduct.Description" class="form-control"></textarea>
+            <span asp-validation-for="NewProduct.Description" class="text-danger"></span>
+        </div>
+
+        <!-- Campo per l'immagine principale del prodotto -->
+        <div class="form-group">
+            <label>Main Image</label>
+            <input type="file" name="mainImage" class="form-control-file" />
+        </div>
+
+        <!-- Campo per la prima immagine aggiuntiva del prodotto -->
+        <div class="form-group">
+            <label>Additional Image 1</label>
+            <input type="file" name="additionalImage1" class="form-control-file" />
+        </div>
+
+        <!-- Campo per la seconda immagine aggiuntiva del prodotto -->
+        <div class="form-group">
+            <label>Additional Image 2</label>
+            <input type="file" name="additionalImage2" class="form-control-file" />
+        </div>
+
+        <!-- Bottone per inviare il form -->
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>

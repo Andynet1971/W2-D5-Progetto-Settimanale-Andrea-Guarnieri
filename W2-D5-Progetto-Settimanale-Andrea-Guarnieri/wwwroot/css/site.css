@@ -1,0 +1,143 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    color: white; /* Colore predefinito del testo */
+    font-size: 1.2em; /* Aumenta la dimensione del font */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('/SiteImage/sfondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img-top {
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+}
+
+/* Stile per il footer */
+.footer {
+    background-color: #343a40; /* Stesso colore della navbar */
+    border-top: 1px solid #e7e7e7;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+    .footer a {
+        color: #007bff;
+    }
+
+        .footer a:hover {
+            color: #0056b3;
+        }
+
+/* Stile per la pagina dei dettagli del prodotto */
+.product-details {
+    color: white; /* Colore del testo predefinito */
+    font-size: 1.2em; /* Dimensione del testo più grande */
+}
+
+    .product-details h2 {
+        color: red; /* Colore del nome in rosso */
+        font-style: italic; /* Stile del font in corsivo */
+        font-size: 2em; /* Dimensione del font */
+        font-weight: bold; /* Grassetto */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra del testo */
+    }
+
+    .product-details .price {
+        color: black; /* Colore del prezzo in nero */
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+
+    .product-details .description {
+        margin-top: 2em; /* Spazio tra l'immagine principale e le scritte */
+    }
+
+    .product-details .additional-images {
+        display: flex;
+        gap: 20px; /* Spazio tra le immagini aggiuntive */
+        justify-content: flex-start; /* Allinea le immagini a sinistra */
+    }
+
+    /* Stile per le immagini */
+    .product-details img {
+        border-radius: 10px; /* Bordi arrotondati */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra delle immagini */
+        transition: transform 0.3s ease-in-out; /* Transizione per l'effetto hover */
+        border: 2px solid red; /* Bordo rosso */
+    }
+
+        .product-details img:hover {
+            transform: scale(1.05); /* Effetto zoom al passaggio del mouse */
+        }
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .form-container h2 {
+        color: #343a40; /* Colore del testo */
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+
+    .form-container .form-group label {
+        font-weight: bold;
+        color: #343a40; /* Colore del testo */
+    }
+
+    .form-container .form-group input,
+    .form-container .form-group textarea {
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        padding: 0.5em;
+    }
+
+        .form-container .form-group input:focus,
+        .form-container .form-group textarea:focus {
+            border-color: #80bdff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+        }
+
+    .form-container .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 5px;
+        padding: 0.5em 2em;
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    }
+
+        .form-container .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+.text-danger {
+    color: red;
+}

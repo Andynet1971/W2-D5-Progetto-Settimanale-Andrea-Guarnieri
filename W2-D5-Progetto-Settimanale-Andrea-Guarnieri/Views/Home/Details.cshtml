@@ -4,25 +4,33 @@
     ViewData["Title"] = "Product Details";
 
     // Funzione per formattare la descrizione del prodotto
+    // La descrizione deve essere inserita come stringa in cui ogni caratteristica è separata da una virgola
+    // e ogni caratteristica ha un'etichetta seguita da due punti e poi il valore.
+    // Ad esempio: "Punta: Tonda, Tipo di tacco: Senza tacco, Chiusura: Lacci"
+
     string FormatDescription(string description)
     {
+        // Controlla se la descrizione è nulla o vuota
         if (string.IsNullOrEmpty(description))
             return string.Empty;
 
+        // Divide la descrizione in parti separate da virgole
         var parts = description.Split(',');
         var formattedDescription = new System.Text.StringBuilder();
 
+        // Itera attraverso ogni parte
         foreach (var part in parts)
         {
+            // Divide ogni parte in etichetta e valore usando i due punti
             var subParts = part.Split(':');
             if (subParts.Length == 2)
             {
-                // Formatta ogni parte della descrizione con il testo in grassetto prima dei due punti e il testo normale dopo
+                // Aggiunge l'etichetta in grassetto e il valore normale alla descrizione formattata
                 formattedDescription.AppendFormat("<strong>{0}:</strong> {1}<br />", subParts[0].Trim(), subParts[1].Trim());
             }
             else
             {
-                // Aggiunge la parte della descrizione non formattata
+                // Se non c'è una divisione chiara in etichetta e valore, aggiunge la parte come testo normale
                 formattedDescription.AppendFormat("{0}<br />", part.Trim());
             }
         }
@@ -30,20 +38,22 @@
         return formattedDescription.ToString();
     }
 
-    // Formatta la descrizione del prodotto
+    // Formatta la descrizione del modello corrente
     var formattedDescription = FormatDescription(Model.Description);
 }
 
+<!-- Contenitore principale per i dettagli del prodotto -->
 <div class="container mt-5 product-details">
     <div class="row">
         <!-- Colonna per l'immagine principale del prodotto -->
         <div class="col-md-3">
-            <img src="~/@Model.MainImage" class="img-fluid mb-3" alt="@Model.Name" style="max-height: 400px; object-fit: cover;">
+            <img src="@Model.MainImage" class="img-fluid mb-3" alt="@Model.Name" style="max-height: 400px; object-fit: cover;">
         </div>
         <!-- Colonna per i dettagli del prodotto -->
         <div class="col-md-6 d-flex flex-column justify-content-start description mt-0">
             <h2>@Model.Name</h2>
             <p class="price">@Model.Price.ToString("C")</p>
+            <!-- Visualizza la descrizione formattata del prodotto -->
             <p>@Html.Raw(formattedDescription)</p>
         </div>
     </div>
@@ -51,8 +61,14 @@
         <div class="col-md-12">
             <!-- Sezione per le immagini aggiuntive del prodotto -->
             <div class="additional-images d-flex">
-                <img src="~/@Model.AdditionalImage1" class="img-thumbnail mr-2" alt="@Model.Name" style="max-height: 200px; object-fit: cover;">
-                <img src="~/@Model.AdditionalImage2" class="img-thumbnail" alt="@Model.Name" style="max-height: 200px; object-fit: cover;">
+                @if (!string.IsNullOrEmpty(Model.AdditionalImage1))
+                {
+                    <img src="@Model.AdditionalImage1" class="img-thumbnail mr-2" alt="@Model.Name" style="max-height: 200px; object-fit: cover;">
+                }
+                @if (!string.IsNullOrEmpty(Model.AdditionalImage2))
+                {
+                    <img src="@Model.AdditionalImage2" class="img-thumbnail" alt="@Model.Name" style="max-height: 200px; object-fit: cover;">
+                }
             </div>
         </div>
     </div>

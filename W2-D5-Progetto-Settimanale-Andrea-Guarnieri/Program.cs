@@ -1,15 +1,17 @@
+using W2_D5_Progetto_Settimanale_Andrea_Guarnieri.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Aggiunge i servizi al contenitore.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configura la pipeline delle richieste HTTP.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

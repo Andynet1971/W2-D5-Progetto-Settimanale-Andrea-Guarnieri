@@ -8,10 +8,11 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    background-image: url('/SiteImage/sfondo.jpg');
-    background-size: cover;
+    background-image: url('/SiteImage/Sfonfo.jpg');
+    background-size: cover; /* Assicura che l'immagine di sfondo copra l'intero spazio */
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Rende l'immagine di sfondo fissa */
 }
 
 main {
@@ -20,10 +21,13 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 80px; /* Altezza della navbar */
+    padding-bottom: 40px; /* Altezza del footer */
+    width: 100%; /* Assicura che il main copra l'intera larghezza */
 }
 
 .card-img-top {
-    max-height: 250px;
+    height: 300px; /* Aumenta l'altezza dell'immagine */
     object-fit: cover;
 }
 
@@ -31,17 +35,36 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 250px;
+    height: 200px; /* Altezza totale della sezione descrizione e bottone */
+}
+
+/* Stile per la navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: red !important;
 }
 
 /* Stile per il footer */
 .footer {
     background-color: #343a40; /* Stesso colore della navbar */
     border-top: 1px solid #e7e7e7;
-    padding: 1rem 0;
+    padding: 0.2rem 0; /* Riduce ulteriormente il padding del footer */
     text-align: center;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
 }
+
+    .footer .container {
+        padding: 0; /* Assicura che il padding interno sia zero */
+    }
 
     .footer a {
         color: #007bff;
@@ -66,7 +89,7 @@ main {
     }
 
     .product-details .price {
-        color: black; /* Colore del prezzo in nero */
+        color: greenyellow; /* Colore del prezzo in nero */
         font-weight: bold;
         font-size: 1.3em;
     }
@@ -95,41 +118,48 @@ main {
 
 .form-container {
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 1em;
+    padding: 0.5em; /* Riduce il padding interno del form */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px; /* Imposta il margine inferiore a 40px */
 }
 
     .form-container h2 {
         color: #343a40; /* Colore del testo */
         font-weight: bold;
-        margin-bottom: 1em;
+        margin-bottom: 0.5em; /* Riduce il margine inferiore del titolo */
     }
 
-    .form-container .form-group label {
-        font-weight: bold;
-        color: #343a40; /* Colore del testo */
+    .form-container .form-group {
+        margin-bottom: 0.5em; /* Riduce il margine inferiore dei gruppi di input */
     }
 
-    .form-container .form-group input,
-    .form-container .form-group textarea {
-        border-radius: 5px;
-        border: 1px solid #ced4da;
-        padding: 0.5em;
-    }
-
-        .form-container .form-group input:focus,
-        .form-container .form-group textarea:focus {
-            border-color: #80bdff;
-            outline: none;
-            box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+        .form-container .form-group label {
+            font-weight: bold;
+            color: #343a40; /* Colore del testo */
+            margin-bottom: 0.3em; /* Riduce il margine inferiore delle etichette */
         }
+
+        .form-container .form-group input,
+        .form-container .form-group textarea {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 0.3em; /* Riduce il padding degli input e delle textarea */
+        }
+
+            .form-container .form-group input:focus,
+            .form-container .form-group textarea:focus {
+                border-color: #80bdff;
+                outline: none;
+                box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+            }
 
     .form-container .btn-primary {
         background-color: #007bff;
         border-color: #007bff;
         border-radius: 5px;
-        padding: 0.5em 2em;
+        padding: 0.3em 1em; /* Riduce il padding del bottone */
+        margin-bottom: 0; /* Riduce il margine inferiore del bottone */
         transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
     }
 
@@ -140,4 +170,19 @@ main {
 
 .text-danger {
     color: red;
+}
+
+/* Stile per il bottone di scelta file */
+.custom-file-input ~ .custom-file-label {
+    color: black; /* Colore del testo del bottone di scelta file */
+}
+
+/* Stile specifico per i campi di input file */
+.form-container .form-group input[type="file"] {
+    color: black;
+}
+
+/* Padding per il contenitore delle card */
+.container {
+    padding-bottom: 40px; /* Riduce il padding inferiore per evitare che le card siano nascoste */
 }

@@ -1,9 +1,10 @@
-﻿@model W2_D5_Progetto_Settimanale_Andrea_Guarnieri.ViewModels.ProductViewModel
+﻿@model W2_D5_Progetto_Settimanale_Andrea_Guarnieri.Models.ProductInputModel
 
 @{
     ViewData["Title"] = "Create Product";
 }
 
+<!-- Contenitore principale per il form di creazione del prodotto -->
 <div class="container mt-5 form-container">
     <h2>Create a new product</h2>
 
@@ -11,44 +12,44 @@
     <form asp-action="Create" enctype="multipart/form-data" method="post">
         <!-- Campo per il nome del prodotto -->
         <div class="form-group">
-            <label asp-for="NewProduct.Name"></label>
-            <input asp-for="NewProduct.Name" class="form-control" />
-            <span asp-validation-for="NewProduct.Name" class="text-danger"></span>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
         <!-- Campo per il prezzo del prodotto -->
         <div class="form-group">
-            <label asp-for="NewProduct.Price"></label>
-            <input asp-for="NewProduct.Price" class="form-control" />
-            <span asp-validation-for="NewProduct.Price" class="text-danger"></span>
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
         </div>
 
         <!-- Campo per la descrizione del prodotto -->
         <div class="form-group">
-            <label asp-for="NewProduct.Description"></label>
-            <textarea asp-for="NewProduct.Description" class="form-control"></textarea>
-            <span asp-validation-for="NewProduct.Description" class="text-danger"></span>
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
 
-        <!-- Campo per l'immagine principale del prodotto -->
+        <!-- Campo per il caricamento dell'immagine principale del prodotto -->
         <div class="form-group">
             <label>Main Image</label>
-            <input type="file" name="mainImage" class="form-control-file" />
+            <input type="file" asp-for="MainImageFile" class="form-control-file" />
         </div>
 
-        <!-- Campo per la prima immagine aggiuntiva del prodotto -->
+        <!-- Campo per il caricamento della prima immagine aggiuntiva del prodotto -->
         <div class="form-group">
             <label>Additional Image 1</label>
-            <input type="file" name="additionalImage1" class="form-control-file" />
+            <input type="file" asp-for="AdditionalImage1File" class="form-control-file" />
         </div>
 
-        <!-- Campo per la seconda immagine aggiuntiva del prodotto -->
+        <!-- Campo per il caricamento della seconda immagine aggiuntiva del prodotto -->
         <div class="form-group">
             <label>Additional Image 2</label>
-            <input type="file" name="additionalImage2" class="form-control-file" />
+            <input type="file" asp-for="AdditionalImage2File" class="form-control-file" />
         </div>
 
-        <!-- Bottone per inviare il form -->
+        <!-- Pulsante per inviare il form e creare il prodotto -->
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>
